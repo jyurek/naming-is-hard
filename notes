@@ -1,0 +1,10 @@
+in ruby 2.1.0, Tempfile#create
+
+principle of least surprise
+
+SRP, small methods
+
+names are executable comments
+
+user -> role_bundle -> role_bundle_role -> role
+user -> user_role -> role
