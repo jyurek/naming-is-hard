@@ -1,0 +1,23 @@
+@charset "UTF-8";
+.deck-container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  background-color: black;
+  color: #ccc;
+}
+
+.slide p {
+  position: absolute:
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+.slide h1 {
+}
+
+.slide p {
+}
+
+.slide img {
+  margin: 10px;
+}

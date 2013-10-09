@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+
+    <title>Naming is hard!</title>
+
+    <!-- Required stylesheet -->
+    <link rel="stylesheet" href="core/deck.core.css">
+
+    <!-- Extension CSS files go here. Remove or add as needed. -->
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" href="extensions/hash/deck.hash.css">
+    <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+    <!-- Style theme. More available in /themes/style/ or create your own. -->
+    <link rel="stylesheet" href="themes/style/naming.css">
+
+    <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+    <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+
+    <!-- Required Modernizr file -->
+    <script src="modernizr.custom.js"></script>
+  </head>
+  <body class="deck-container">
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+
+    <div class="slide">
+      <h1>Hi, I'm Jon Yurek</h1>
+      <p>@jyurek</p>
+      <p>github.com/jyurek</p>
+    </div>
+    <div class="slide"><img src="images/ralph.png"/></div>
+    <div class="slide">This talk is about naming things</div>
+    <div class="slide">Naming is hard</div>
+    <div class="slide">
+      <h1>Phil Karlton</h1>
+      <blockquote>
+        There are only two hard things in Computer Science: cache invalidation and naming things.
+      </blockquote>
+    </div>
+    <div class="slide">They're hard because they're not calculable.</div>
+    <div class="slide">Code is communication</div>
+    <div class="slide">The computer doesn't care what you name a class</div>
+    <div class="slide"><img height="100%" width="100%" src="images/bad_code.png"/></div>
+    <div class="slide">Even "joke" langauges show that code is written for humans to care about</div>
+    <div class="slide">We program for other people</div>
+    <div class="slide">We work on teams. We need to communicate.</div>
+    <div class="slide">Ideas have power. Names have power.</div>
+    <div class="slide">Giving things names helps you think about them</div>
+    <div class="slide">
+      <h1>Sapir-Whorf Hypothesis</h1>
+      <blockquote>
+        A hypothesis holding that the structure of a language affects the perceptions of reality of its speakers and thus influences their thought patterns and worldviews.
+      </blockquote>
+    </div>
+    <div class="slide">We don't work in trivial codebases</div>
+    <div class="slide">Know what you're working with</div>
+    <div class="slide">If you can't name something, it's probably wrong</div>
+    <div class="slide">It might be wrong because you're doing too much</div>
+    <div class="slide">Don't try to contain too much in one label</div>
+    <div class="slide">Don't be too general</div>
+    <div class="slide">"Object" is the only thing that should be "Object"</div>
+    <div class="slide">"Base" is bad</div>
+    <div class="slide">I worked in a project with a base class of "Datum"</div>
+    <div class="slide">WAY too general</div>
+    <div class="slide">And won't <b>someone</b> think of the grammar!</div>
+    <div class="slide">SRP applies to names, too</div>
+    <div class="slide">Something that does one thing will be easier to name</div>
+    <div class="slide">20 Lines of Error Handling</div>
+    <div class="slide">Extracted error handling was now 5 lines and a class called "SyncErrorHandler"</div>
+    <div class="slide"><h1>Sandi Metz's rules</h1>
+      <ol>
+        <li>Classes can be no longer than one hundred lines of code.</li>
+        <li>Methods can be no longer than five lines of code.</li>
+        <li>Pass no more than four parameters into a method. Hash options are parameters.</li>
+        <li>Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object (@object.collaborator.value is not allowed).</li>
+      </ol>
+    </div>
+    <div class="slide">Small classes, small methods</div>
+    <div class="slide">That means many classes and methods</div>
+    <div class="slide">The parts become labelled for you</div>
+    <div class="slide">Learn how something works by extracting methods</div>
+    <div class="slide">It wasn't a good method</div>
+    <div class="slide">Even after extraction, it's a 50 line method called "run"</div>
+    <div class="slide">best thing to do is extract methods</div>
+    <div class="slide">extracting methods lets you tease apart intent</div>
+    <div class="slide">knowing intent lets you apply names</div>
+    <div class="slide">applying names tells the next person about the code</div>
+    Even small names matter
+    Don't ever name something "x"
+    Old habits die hard
+    I learned on BASIC, and single letters were the rule
+
+    <!-- End slides. -->
+
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- deck.hash snippet -->
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+    <!-- End extension snippets. -->
+
+
+    <!-- Required JS files. -->
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="core/deck.core.js"></script>
+
+    <!-- Extension JS files. Add or remove as needed. -->
+    <script src="core/deck.core.js"></script>
+    <script src="extensions/hash/deck.hash.js"></script>
+    <script src="extensions/menu/deck.menu.js"></script>
+    <script src="extensions/goto/deck.goto.js"></script>
+    <script src="extensions/status/deck.status.js"></script>
+    <script src="extensions/navigation/deck.navigation.js"></script>
+    <script src="extensions/scale/deck.scale.js"></script>
+
+    <!-- Initialize the deck. You can put this in an external file if desired. -->
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+    </script>
+  </body>
+</html>
