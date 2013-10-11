@@ -231,20 +231,78 @@ end
 </pre>
       </code>
     </div>
+    <div class="slide">
+      <code class="vcenter">
+<pre>
+def define
+  define_flush_errors
+  define_getters
+  define_setter
+  define_query
+  register_new_attachment
+  add_active_record_callbacks
+  add_paperclip_callbacks
+end
+</pre>
+      </code>
+    </div>
     <div class="slide"><h1>Specificity matters</h1></div>
     <div class="slide"><h1>Don't ever name a variable "x"</h1></div>
+    <div class="slide"><h1>Try searching for "x"</h1></div>
     <div class="slide"><h1>Let your names document your code</h1></div>
-    <div class="slide"><h1>Executable commentary</h1></div>
+    <div class="slide">
+      <code class="vcenter">
+        <pre>
+nodes.map do |node|
+  self.distance_to(node)
+end
+</pre>
+</code>
+    </div>
     <div class="slide"><h1>Hungarian Notation</h1></div>
-    <div class="slide"><h1>Systems Hungarian</h1>
-      <p>strUsername</p></div>
-    <div class="slide"><h1>Apps Hungarian</h1>
-      <p>dY, dX, safeInput</p></div>
-    <div class="slide"><h1>Don't use it</h1></div>
-
     <div class="slide">
       <div class="vcenter hcenter">
-        <h1>Jon Yurek</h1>
+        <h1>Systems Hungarian</h1>
+        <p>strUsername</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="vcenter hcenter">
+        <h1>Apps Hungarian</h1>
+        <p>dY, dX, safeInput</p>
+      </div>
+    </div>
+    <div class="slide"><h1>Not so great anymore</h1></div>
+    <div class="slide">
+      <code class="vcenter">
+        <pre>
+def venue_options
+  Venue.where(
+    foursquare_category_id: foursquare_categories.map(&:id),
+    neighborhood_id: neighborhoods.map(&:id)
+  )
+end
+</pre>
+</code>
+    </div>
+    <div class="slide">
+      <code class="vcenter">
+<pre>
+def venues
+  Venue.where(
+    foursquare_category_id: foursquare_categories.map(&:id),
+    neighborhood_id: neighborhoods.map(&:id)
+  )
+end
+</pre>
+</code>
+    </div>
+
+    <div class="slide"><h1>Say what you mean,<br>mean what you say</h1></div>
+    <div class="slide">
+      <div class="vcenter hcenter">
+        <h1>Thank you!</h1>
+        <p>Jon Yurek</p>
         <p>@jyurek</p>
         <p>jyurek@thoughtbot.com</p>
         <p>github.com/jyurek</p>
