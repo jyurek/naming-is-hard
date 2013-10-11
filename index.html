@@ -31,50 +31,117 @@
 
     <!-- Begin slides. Just make elements with a class of slide. -->
 
+    <div class="slide"><h1>Naming Is Hard!</h1></div>
     <div class="slide">
-      <h1>Hi, I'm Jon Yurek</h1>
-      <p>@jyurek</p>
-      <p>github.com/jyurek</p>
+      <div class="vcenter hcenter">
+        <h1>Hi, I'm Jon Yurek</h1>
+        <p>@jyurek</p>
+        <p>github.com/jyurek</p>
+      </div>
     </div>
     <div class="slide"><img src="images/ralph.png"/></div>
-    <div class="slide">This talk is about naming things</div>
-    <div class="slide">Naming is hard</div>
+    <div class="slide"><h1>This talk is about naming things</h1></div>
     <div class="slide">
-      <h1>Phil Karlton</h1>
-      <blockquote>
-        There are only two hard things in Computer Science: cache invalidation and naming things.
-      </blockquote>
+      <code class="vcenter">
+<pre>
+if user.role.present? && user.role.name == "admin"
+  user.something = params[:something]
+end
+</pre>
+      </code>
     </div>
-    <div class="slide">They're hard because they're not calculable.</div>
-    <div class="slide">Code is communication</div>
-    <div class="slide">The computer doesn't care what you name a class</div>
-    <div class="slide"><img height="100%" width="100%" src="images/bad_code.png"/></div>
-    <div class="slide">Even "joke" langauges show that code is written for humans to care about</div>
-    <div class="slide">We program for other people</div>
-    <div class="slide">We work on teams. We need to communicate.</div>
-    <div class="slide">Ideas have power. Names have power.</div>
-    <div class="slide">Giving things names helps you think about them</div>
     <div class="slide">
-      <h1>Sapir-Whorf Hypothesis</h1>
+      <code class="vcenter">
+<pre>
+if user.can_change_something?
+  user.reset_something
+end
+[...]
+def can_change_something?
+  role.present? && role.name == "admin"
+end
+</pre>
+      </code>
+    </div>
+    <div class="slide">
+      <div class="vcenter">
+        <blockquote>
+          There are only two hard things in Computer Science: cache invalidation and naming things.
+          <cite>Phil Karlton</cite>
+        </blockquote>
+      </div>
+    </div>
+    <div class="slide"><h1>They're hard because they're not calculable.</h1></div>
+    <div class="slide"><h1>Code is communication</h1></div>
+    <div class="slide"><h1>The computer doesn't care what you name a class</h1></div>
+    <div class="slide"><img height="100%" width="100%" src="images/bad_code.png"/></div>
+    <div class="slide">
+      <code class="vcenter">
+<pre>
+   	  	   
+	
+     		  	 	
+	
+     		 		  
+	
+     		 		  
+	
+     		 				
+	
+     	 		  
+	
+     	     
+	
+     			 			
+	
+     		 				
+	
+     			  	 
+	
+     		 		  
+	
+     		  	  
+	
+     	    	
+	
+  
+
+
+</pre>
+      </code>
+    </div>
+    <div class="slide">
+      <code class="vcenter">
+<pre>
+-,+[-[>>++++[>++++++++<-]<+<-[>+>+>-[>>>]<[[>+<-]>>+>]<<<<<-]]>>>[-]+>--[-[<->+++[-]]]<[++++++++++++<[>-[>+>>]>[+[<+>-]>+>>]<<<<<-]>>[<+>-]>[-[-<<[-]>>]<<[<<->>-]>>]<<[<<+>>-]]<[-]<.[-]<-,+]
+</pre>
+      </code>
+    </div>
+    <div class="slide"><h1>Languages are written for humans</h1></div>
+    <div class="slide"><h1>We program for other people</h1></div>
+    <div class="slide"><h1>We work on teams. We need to communicate.</h1></div>
+    <div class="slide"><h1>Ideas have power. Names have power.</h1></div>
+    <div class="slide"><h1>Giving things names helps you think about them</h1></div>
+    <div class="slide">
       <blockquote>
         A hypothesis holding that the structure of a language affects the perceptions of reality of its speakers and thus influences their thought patterns and worldviews.
+        <cite>Sapir-Whorf Hypothesis</cite>
       </blockquote>
     </div>
-    <div class="slide">We don't work in trivial codebases</div>
-    <div class="slide">Know what you're working with</div>
-    <div class="slide">If you can't name something, it's probably wrong</div>
-    <div class="slide">It might be wrong because you're doing too much</div>
-    <div class="slide">Don't try to contain too much in one label</div>
-    <div class="slide">Don't be too general</div>
-    <div class="slide">"Object" is the only thing that should be "Object"</div>
-    <div class="slide">"Base" is bad</div>
-    <div class="slide">I worked in a project with a base class of "Datum"</div>
-    <div class="slide">WAY too general</div>
-    <div class="slide">And won't <b>someone</b> think of the grammar!</div>
-    <div class="slide">SRP applies to names, too</div>
-    <div class="slide">Something that does one thing will be easier to name</div>
-    <div class="slide">20 Lines of Error Handling</div>
-    <div class="slide">Extracted error handling was now 5 lines and a class called "SyncErrorHandler"</div>
+    <div class="slide"><h1>Know what you're working with</h1></div>
+    <div class="slide"><h1>If you can't name something, it's probably wrong</h1></div>
+    <div class="slide"><h1>It might be wrong because you're doing too much</h1></div>
+    <div class="slide"><h1>Don't try to contain too much in one label</h1></div>
+    <div class="slide"><h1>Don't be too general</h1></div>
+    <div class="slide"><h1>"Object" is the only thing that should be "Object"</h1></div>
+    <div class="slide"><h1>"Base" is bad</h1></div>
+    <div class="slide"><h1>I worked in a project with a base class of "Datum"</h1></div>
+    <div class="slide"><h1>WAY too general</h1></div>
+    <div class="slide"><h1>And won't <b>someone</b> think of the grammar!</h1></div>
+    <div class="slide"><h1>SRP applies to names, too</h1></div>
+    <div class="slide"><h1>Something that does one thing will be easier to name</h1></div>
+    <div class="slide"><h1>20 Lines of Error Handling</h1></div>
+    <div class="slide"><h1>Extracted error handling was now 5 lines and a class called "SyncErrorHandler"</h1></div>
     <div class="slide"><h1>Sandi Metz's rules</h1>
       <ol>
         <li>Classes can be no longer than one hundred lines of code.</li>
@@ -83,20 +150,20 @@
         <li>Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object (@object.collaborator.value is not allowed).</li>
       </ol>
     </div>
-    <div class="slide">Small classes, small methods</div>
-    <div class="slide">That means many classes and methods</div>
-    <div class="slide">The parts become labelled for you</div>
-    <div class="slide">Learn how something works by extracting methods</div>
-    <div class="slide">It wasn't a good method</div>
-    <div class="slide">Even after extraction, it's a 50 line method called "run"</div>
-    <div class="slide">best thing to do is extract methods</div>
-    <div class="slide">extracting methods lets you tease apart intent</div>
-    <div class="slide">knowing intent lets you apply names</div>
-    <div class="slide">applying names tells the next person about the code</div>
-    Even small names matter
-    Don't ever name something "x"
-    Old habits die hard
-    I learned on BASIC, and single letters were the rule
+    <div class="slide"><h1>Small classes, small methods</h1></div>
+    <div class="slide"><h1>That means many classes and methods</h1></div>
+    <div class="slide"><h1>The parts become labelled for you</h1></div>
+    <div class="slide"><h1>Learn how something works by extracting methods</h1></div>
+    <div class="slide"><h1>It wasn't a good method</h1></div>
+    <div class="slide"><h1>Even after extraction, it's a 50 line method called "run"</h1></div>
+    <div class="slide"><h1>best thing to do is extract methods</h1></div>
+    <div class="slide"><h1>extracting methods lets you tease apart intent</h1></div>
+    <div class="slide"><h1>knowing intent lets you apply names</h1></div>
+    <div class="slide"><h1>applying names tells the next person about the code</h1></div>
+    <div class="slide"><h1>Even small names matter</h1></div>
+    <div class="slide"><h1>Don't ever name something "x"</h1></div>
+    <div class="slide"><h1>Old habits die hard</h1></div>
+    <div class="slide"><h1>I learned on BASIC, and single letters were the rule</h1></div>
 
     <!-- End slides. -->
 
