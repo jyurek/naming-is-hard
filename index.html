@@ -24,10 +24,13 @@
     <!-- Transition theme. More available in /themes/transition/ or create your own. -->
     <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
 
+    <!-- Pygments theme -->
+    <link rel="stylesheet" href="themes/pygments-css/vim.css">
+
     <!-- Required Modernizr file -->
     <script src="modernizr.custom.js"></script>
   </head>
-  <body class="deck-container">
+  <body class="deck-container codehilite">
 
     <!-- Begin slides. Just make elements with a class of slide. -->
 
@@ -36,32 +39,43 @@
       <div class="vcenter hcenter">
         <h1>Hi, I'm Jon Yurek</h1>
         <p>@jyurek</p>
+        <p>jyurek@thoughtbot.com</p>
         <p>github.com/jyurek</p>
       </div>
     </div>
-    <div class="slide"><img src="images/ralph.png"/></div>
+    <div class="slide"><img class="vcenter" src="images/ralph.png"/></div>
     <div class="slide"><h1>This talk is about naming things</h1></div>
+    <div class="slide"><h1>The big takeaway:</h1></div>
+    <div class="slide"><h1>Don't name something what it does</h1></div>
+    <div class="slide"><h1>Name it for why it's there</h1></div>
     <div class="slide">
-      <code class="vcenter">
-<pre>
+<div class="vcenter highlight"><pre>
 if user.role.present? && user.role.name == "admin"
   user.something = params[:something]
 end
-</pre>
-      </code>
+</pre></div>
     </div>
     <div class="slide">
-      <code class="vcenter">
-<pre>
+<div class="highlight vcenter"><pre>
+if user.is_admin?
+  user.reset_something
+end
+
+def is_admin?
+  role.present? && role.name == "admin"
+end
+</pre></div>
+    </div>
+    <div class="slide">
+<div class="highlight vcenter"><pre>
 if user.can_change_something?
   user.reset_something
 end
-[...]
+
 def can_change_something?
   role.present? && role.name == "admin"
 end
-</pre>
-      </code>
+</pre></div>
     </div>
     <div class="slide">
       <div class="vcenter">
@@ -71,10 +85,10 @@ end
         </blockquote>
       </div>
     </div>
-    <div class="slide"><h1>They're hard because they're not calculable.</h1></div>
+    <div class="slide"><h1>They're not calculable</h1></div>
     <div class="slide"><h1>Code is communication</h1></div>
     <div class="slide"><h1>The computer doesn't care what you name a class</h1></div>
-    <div class="slide"><img height="100%" width="100%" src="images/bad_code.png"/></div>
+    <div class="slide"><img class="vcenter" height="100%" width="100%" src="images/bad_code.png"/></div>
     <div class="slide">
       <code class="vcenter">
 <pre>
@@ -120,50 +134,123 @@ end
     <div class="slide"><h1>Languages are written for humans</h1></div>
     <div class="slide"><h1>We program for other people</h1></div>
     <div class="slide"><h1>We work on teams. We need to communicate.</h1></div>
-    <div class="slide"><h1>Ideas have power. Names have power.</h1></div>
+    <div class="slide"><h1>Ideas have power.<br>Names have power.</h1></div>
     <div class="slide">
       <blockquote class="vcenter">
         A hypothesis holding that the structure of a language affects the perceptions of reality of its speakers and thus influences their thought patterns and worldviews.
         <cite>Sapir-Whorf Hypothesis</cite>
       </blockquote>
     </div>
-    <div class="slide"><h1>Giving things names helps you think about them</h1></div>
-    <div class="slide"><h1>If you can't name something, it's probably wrong</h1></div>
-    <div class="slide"><h1>It might be wrong because you're doing too much</h1></div>
-    <div class="slide"><h1>Don't try to contain too much in one label</h1></div>
+    <div class="slide"><h1>Assigning names helps you think about concepts</h1></div>
+    <div class="slide"><h1>If you can't name it, it's probably wrong</h1></div>
     <div class="slide"><h1>Don't be too general</h1></div>
-    <div class="slide"><h1>"Object" is the only thing that should be "Object"</h1></div>
-    <div class="slide"><h1>"Base" is bad</h1></div>
-    <div class="slide"><h1>I worked in a project with a base class of "Datum"</h1></div>
-    <div class="slide"><h1>WAY too general</h1></div>
-    <div class="slide"><h1>And won't <b>someone</b> think of the grammar!</h1></div>
+    <div class="slide"><h1>"Object" is the only class that should be "Object"</h1></div>
+    <div class="slide"><h1>Base</h1></div>
+    <div class="slide"><h1>Datum</h1></div>
     <div class="slide"><h1>SRP applies to names, too</h1></div>
-    <div class="slide"><h1>Something that does one thing will be easier to name</h1></div>
-    <div class="slide"><h1>20 Lines of Error Handling</h1></div>
-    <div class="slide"><h1>Extracted error handling was now 5 lines and a class called "SyncErrorHandler"</h1></div>
+    <div class="slide"><h1>"Datum" objects persisted to DB<br>... and Cassandra</h1></div>
+    <div class="slide"><h1>"What's this do?"<br>"I don't know, it's a 'Thing'"</h1></div>
+    <div class="slide"><h1>If it has one function, it easier to name</h1></div>
+    <div class="slide"><h1>Method with 20 Lines of Error Handling</h1></div>
+    <div class="slide"><h1>Extracted error handling into a class called "SyncErrorHandler"</h1></div>
     <div class="slide"><h1>Sandi Metz's rules</h1></div>
     <div class="slide">
       <ol class="vcenter">
-        <li>Classes can be no longer than one hundred lines of code.</li>
-        <li>Methods can be no longer than five lines of code.</li>
-        <li>Pass no more than four parameters into a method. Hash options are parameters.</li>
-        <li>Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object (@object.collaborator.value is not allowed).</li>
+        <li class="slide">Classes can be no longer than one hundred lines of code.</li>
+        <li class="slide">Methods can be no longer than five lines of code.</li>
+        <li class="slide">Pass no more than four parameters into a method. Hash options are parameters.</li>
+        <li class="slide">Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object (@object.collaborator.value is not allowed).</li>
       </ol>
     </div>
     <div class="slide"><h1>Small classes, small methods</h1></div>
     <div class="slide"><h1>That means many classes and methods</h1></div>
     <div class="slide"><h1>The parts become labelled for you</h1></div>
-    <div class="slide"><h1>Learn how something works by extracting methods</h1></div>
+    <div class="slide"><h1>Learn how it works by extracting methods</h1></div>
     <div class="slide"><h1>It wasn't a good method</h1></div>
     <div class="slide"><h1>Even after extraction, it's a 50 line method called "run"</h1></div>
-    <div class="slide"><h1>best thing to do is extract methods</h1></div>
-    <div class="slide"><h1>extracting methods lets you tease apart intent</h1></div>
-    <div class="slide"><h1>knowing intent lets you apply names</h1></div>
-    <div class="slide"><h1>applying names tells the next person about the code</h1></div>
-    <div class="slide"><h1>Even small names matter</h1></div>
-    <div class="slide"><h1>Don't ever name something "x"</h1></div>
-    <div class="slide"><h1>Old habits die hard</h1></div>
-    <div class="slide"><h1>I learned on BASIC, and single letters were the rule</h1></div>
+    <div class="slide"><h1>Best action is to extract methods</h1></div>
+    <div class="slide"><h1>Extracting methods lets you understand intent</h1></div>
+    <div class="slide"><h1>Knowing intent lets you apply names</h1></div>
+    <div class="slide"><h1>Document the system</h1></div>
+    <div class="slide"><h1>Code can tell a story</h1></div>
+    <div class="slide"><h1>Less specific to more specific as you go down</h1></div>
+    <div class="slide">
+      <code class="vcenter">
+<pre>
+def define
+  define_flush_errors
+  define_getters
+  define_setter
+  define_query
+  register_new_attachment
+  add_active_record_callbacks
+  add_paperclip_callbacks
+end
+</pre>
+      </code>
+    </div>
+    <div class="slide">
+      <code class="vcenter">
+<pre>
+def has_attached_file(name, options = {})
+  include InstanceMethods
+
+  if attachment_definitions.nil?
+    self.attachment_definitions = {}
+  else
+    self.attachment_definitions = self.attachment_definitions.dup
+  end
+
+  attachment_definitions[name] = Paperclip::AttachmentOptions.new(options)
+  Paperclip.classes_with_attachments << self.name
+
+  after_save :save_attached_files
+  before_destroy :prepare_for_destroy
+  after_destroy :destroy_attached_files
+
+  define_paperclip_callbacks :post_process, :"#{name}_post_process"
+
+  define_method name do |*args|
+    a = attachment_for(name)
+    (args.length > 0) ? a.to_s(args.first) : a
+  end
+
+  define_method "#{name}=" do |file|
+    attachment_for(name).assign(file)
+  end
+
+  define_method "#{name}?" do
+    attachment_for(name).file?
+  end
+
+  validates_each(name) do |record, attr, value|
+    attachment = record.attachment_for(name)
+    attachment.send(:flush_errors)
+  end
+end
+</pre>
+      </code>
+    </div>
+    <div class="slide"><h1>Specificity matters</h1></div>
+    <div class="slide"><h1>Don't ever name a variable "x"</h1></div>
+    <div class="slide"><h1>Let your names document your code</h1></div>
+    <div class="slide"><h1>Executable commentary</h1></div>
+    <div class="slide"><h1>Hungarian Notation</h1></div>
+    <div class="slide"><h1>Systems Hungarian</h1>
+      <p>strUsername</p></div>
+    <div class="slide"><h1>Apps Hungarian</h1>
+      <p>dY, dX, safeInput</p></div>
+    <div class="slide"><h1>Don't use it</h1></div>
+
+    <div class="slide">
+      <div class="vcenter hcenter">
+        <h1>Jon Yurek</h1>
+        <p>@jyurek</p>
+        <p>jyurek@thoughtbot.com</p>
+        <p>github.com/jyurek</p>
+      </div>
+    </div>
+
 
     <!-- End slides. -->
 

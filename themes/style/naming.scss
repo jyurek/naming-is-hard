@@ -1,10 +1,13 @@
+$background-color: black;
+$text-color: white;
+
 .deck-container {
   font-family: "Gill Sans", sans-serif;
   font-size:1.75em;
-  background:#000;
+  background:$background-color;
 
   .slide {
-    background:#000;
+    background:$background-color;
 
     .vcenter {
       text-align: inherit;
@@ -15,40 +18,44 @@
     }
 
     h1 {
-      color:#fff;
+      color:$text-color;
     }
 
     h2 {
-      color:#fff;
+      color:$text-color;
     }
 
     h3 {
-      color:#fff;
+      color:$text-color;
     }
 
     pre {
-      color: #ccc;
       border: 0;
+      color: $text-color;
       font-size: 1.75em;
     }
 
     code {
-      color:#888;
     }
 
     p {
-      color: #ccc;
+      color: darken($text-color, 33%);
       margin-bottom: 0.25em;
       margin-top: 0.25em;
       font-size: 1.5em;
+    }
+
+    li {
+      color: $text-color;
+      font-size: 2em;
     }
 
     blockquote {
       font-size:2.5em;
       font-style:italic;
       padding:1em 2em;
-      color:#fff;
-      border-left:5px solid #ccc;
+      color:$text-color;
+      border-left:5px solid darken($text-color, 25%);
 
       p {
         margin:0;
@@ -59,12 +66,12 @@
         font-size:0.75em;
         font-style:normal;
         font-weight:bold;
-        color:#888;
+        color: darken($text-color, 33%);
       }
     }
 
-    ::-moz-selection{ background:#c00; color:#fff; }
-    ::selection { background:#c00; color:#fff; }
+    ::-moz-selection{ background:#c00; color:$text-color; }
+    ::selection { background:#c00; color:$text-color; }
 
     a {
       &, &:hover, &:focus, &:active, &:visited {
@@ -95,11 +102,11 @@
   } 
 
   .deck-prev-link, .deck-next-link {
-    background:#000;
+    background:$background-color;
     font-family:serif; // sans-serif arrows x-browser fail
 
     &, &:hover, &:focus, &:active, &:visited {
-      color:#fff;
+      color:$text-color;
     }
 
     &:hover, &:focus {
@@ -114,11 +121,11 @@
 
   &.deck-menu {
     .slide {
-      background:#eee;
+      background:$background-color;
     }
 
     .deck-current, .no-touch & .slide:hover {
-      background:#ddf;
+      background: lighten($background-color, 50%);
     }
   }
 }
