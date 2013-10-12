@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="slide"><img class="vcenter" src="images/ralph.png"/></div>
-    <div class="slide"><h1>This talk is about naming</h1></div>
+    <div class="slide header"><h1>This talk is about naming</h1></div>
     <div class="slide"><h1>Don't name it what it does<br>Name it for why it's there</h1></div>
     <div class="slide">
 <div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">comments</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">comments</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">created_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span>
@@ -123,7 +123,7 @@
     <div class="slide"><h1>Languages are written for humans</h1></div>
     <div class="slide"><h1>We program for other people</h1></div>
     <div class="slide"><h1>We work on teams. We need to communicate.</h1></div>
-    <div class="slide"><h1>1. Reveal your intentions.</h1></div>
+    <div class="slide header"><h1>Reveal your intentions.</h1></div>
     <div class="slide"><h1>Names have power.</h1></div>
     <div class="slide">
       <blockquote class="vcenter">
@@ -133,7 +133,7 @@
     </div>
     <div class="slide"><h1>Build a domain language</h1></div>
     <div class="slide"><h1>Assigning good names helps you think about concepts</h1></div>
-    <div class="slide"><h1>2. Be specific</h1></div>
+    <div class="slide header"><h1>Be specific</h1></div>
     <div class="slide"><h1>If you can't name it, it's probably wrong</h1></div>
     <div class="slide"><h1>Don't be too general</h1></div>
     <div class="slide"><h1>SRP applies to names, too</h1></div>
@@ -152,7 +152,7 @@
     <div class="slide"><h1>That means many classes and methods</h1></div>
     <div class="slide"><h1>The parts become labelled for you</h1></div>
     <div class="slide"><h1>Best action is to extract methods</h1></div>
-    <div class="slide"><h1>3. Refactoring and extraction reveal meaning</h1></div>
+    <div class="slide header"><h1> Refactoring and extraction reveal meaning</h1></div>
     <div class="slide"><h1>Learn how it works by extracting methods</h1></div>
     <div class="slide"><h1>Extracting methods lets you understand intent</h1></div>
     <div class="slide"><h1>Knowing intent lets you apply names</h1></div>
@@ -233,7 +233,7 @@
 </pre></div>
     </code>
   </div>
-  <div class="slide"><h1>4. Your names should make sense</h1></div>
+  <div class="slide header"><h1>Your names should make sense</h1></div>
   <div class="slide"><h1>Ruby isn't statically typed</h1></div>
   <div class="slide"><h1>A array called "users" should contain Users</h1></div>
   <div class="slide">
@@ -281,7 +281,7 @@
   </div>
   <div class="slide"><h1>Not so great anymore</h1></div>
   <div class="slide"><h1>This is Ruby, not C</h1></div>
-  <div class="slide"><h1>5. Clarity is key</h1></div>
+  <div class="slide header"><h1>Clarity is key</h1></div>
   <div class="slide"><h1>Say what you mean,<br>mean what you say</h1></div>
   <div class="slide">
 <div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">popular?</span>
@@ -297,7 +297,36 @@
   <div class="slide"><h1>Don't take a metaphor too far</h1></div>
   <div class="slide"><h1>Cocaine.do_line("...")</h1></div>
 
+  <div class="slide header"><h1>Document your Documentation</h1></div>
+  <div class="slide"><h1>A test's name should be its justification</h1></div>
+  <div class="slide">
+<div class="highlight vcenter"><pre><span class="n">describe</span> <span class="no">Library</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">&#39;contains a lot of books&#39;</span> <span class="k">do</span>
+    <span class="n">library</span> <span class="o">=</span> <span class="no">Library</span><span class="o">.</span><span class="n">new</span>
+    <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span> <span class="n">library</span><span class="o">.</span><span class="n">donate</span><span class="p">(</span><span class="n">build</span><span class="p">(</span><span class="ss">:book</span><span class="p">))</span> <span class="p">}</span>
+    <span class="n">library</span><span class="o">.</span><span class="n">should</span> <span class="n">contain</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">books</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+  </div>
+  <div class="slide">
+<div class="highlight vcenter"><pre><span class="n">feature</span> <span class="s1">&#39;A user visiting a library&#39;</span> <span class="k">do</span>
+  <span class="n">scenario</span> <span class="s1">&#39;can reserve a book&#39;</span> <span class="k">do</span>
+    <span class="n">visit</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">scenario</span> <span class="s1">&#39;can reserve a book when it is already checked out&#39;</span> <span class="k">do</span>
+    <span class="n">visit</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+  </div>
+
   <div class="slide"><h1>Names are important</h1></div>
+  <div class="slide"><h1>Names are how you interact with your code</h1></div>
+  <div class="slide"><h1>Reveal your intentions</h1></div>
+  <div class="slide"><h1>This is hard, don't feel too bad</h1></div>
+  <div class="slide"><h1>It's one of the hardest things in Computer Science</h1></div>
 
   <div class="slide">
     <div class="vcenter hcenter">

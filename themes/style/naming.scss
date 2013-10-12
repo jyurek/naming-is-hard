@@ -87,6 +87,10 @@ $text-color: white;
     }
   }
 
+  .slide.header h1 {
+    color: #ccf;
+  }
+
   > .slide {
     .deck-before, .deck-previous {
       opacity:0.4;
