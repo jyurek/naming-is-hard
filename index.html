@@ -45,36 +45,32 @@
     </div>
     <div class="slide"><img class="vcenter" src="images/ralph.png"/></div>
     <div class="slide"><h1>This talk is about naming things</h1></div>
-    <div class="slide"><h1>The big takeaway:</h1></div>
-    <div class="slide"><h1>Don't name something what it does</h1></div>
+    <div class="slide"><h1>Don't name it what it does</h1></div>
     <div class="slide"><h1>Name it for why it's there</h1></div>
     <div class="slide">
-<div class="vcenter highlight"><pre>
-if user.role.present? && user.role.name == "admin"
-  user.something = params[:something]
-end
+      <div class="highlight vcenter"><pre><span class="k">if</span> <span class="vi">@tag</span> <span class="o">&amp;&amp;</span> <span class="vi">@tag</span><span class="o">.</span><span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">5</span>
+  <span class="n">display_important_tag</span><span class="p">(</span><span class="vi">@tag</span><span class="p">)</span>
+<span class="k">end</span>
 </pre></div>
     </div>
     <div class="slide">
-<div class="highlight vcenter"><pre>
-if user.is_admin?
-  user.reset_something
-end
+      <div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">high_weight?</span><span class="p">(</span><span class="vi">@tag</span><span class="p">)</span>
+  <span class="n">display_important_tag</span><span class="p">(</span><span class="vi">@tag</span><span class="p">)</span>
+<span class="k">end</span>
 
-def is_admin?
-  role.present? && role.name == "admin"
-end
+<span class="k">def</span> <span class="nf">high_weight?</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+  <span class="n">tag</span> <span class="o">&amp;&amp;</span> <span class="n">tag</span><span class="o">.</span><span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="k">end</span>
 </pre></div>
     </div>
     <div class="slide">
-<div class="highlight vcenter"><pre>
-if user.can_change_something?
-  user.reset_something
-end
+      <div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">important?</span>
+  <span class="n">display_important_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="k">end</span>
 
-def can_change_something?
-  role.present? && role.name == "admin"
-end
+<span class="k">def</span> <span class="nc">tag</span><span class="o">.</span><span class="nf">important?</span>
+  <span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="k">end</span>
 </pre></div>
     </div>
     <div class="slide">
@@ -87,38 +83,39 @@ end
     </div>
     <div class="slide"><h1>They're not calculable</h1></div>
     <div class="slide"><h1>Code is communication</h1></div>
-    <div class="slide"><h1>The computer doesn't care what you name a class</h1></div>
+    <div class="slide"><h1>The computer doesn't care about names</h1></div>
+    <div class="slide"><h1>It just cares that everything lines up</h1></div>
     <div class="slide"><img class="vcenter" height="100%" width="100%" src="images/bad_code.png"/></div>
     <div class="slide">
       <code class="vcenter">
 <pre>
-   	  	   
-	
-     		  	 	
-	
-     		 		  
-	
-     		 		  
-	
-     		 				
-	
-     	 		  
-	
-     	     
-	
-     			 			
-	
-     		 				
-	
-     			  	 
-	
-     		 		  
-	
-     		  	  
-	
-     	    	
-	
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </pre>
@@ -127,13 +124,17 @@ end
     <div class="slide">
       <code class="vcenter">
 <pre>
--,+[-[>>++++[>++++++++<-]<+<-[>+>+>-[>>>]<[[>+<-]>>+>]<<<<<-]]>>>[-]+>--[-[<->+++[-]]]<[++++++++++++<[>-[>+>>]>[+[<+>-]>+>>]<<<<<-]>>[<+>-]>[-[-<<[-]>>]<<[<<->>-]>>]<<[<<+>>-]]<[-]<.[-]<-,+]
+-,+[-[>>++++[>++++++++<-]<+<-[>+>+>-[>>>]<[[>+<-]
+>>+>]<<<<<-]]>>>[-]+>--[-[<->+++[-]]]<[++++++++++
+++<[>-[>+>>]>[+[<+>-]>+>>]<<<<<-]>>[<+>-]>[-[-<<[
+-]>>]<<[<<->>-]>>]<<[<<+>>-]]<[-]<.[-]<-,+]
 </pre>
       </code>
     </div>
     <div class="slide"><h1>Languages are written for humans</h1></div>
     <div class="slide"><h1>We program for other people</h1></div>
     <div class="slide"><h1>We work on teams. We need to communicate.</h1></div>
+    <div class="slide"><h1>Intention-revealing names</h1></div>
     <div class="slide"><h1>Ideas have power.<br>Names have power.</h1></div>
     <div class="slide">
       <blockquote class="vcenter">
@@ -141,13 +142,11 @@ end
         <cite>Sapir-Whorf Hypothesis</cite>
       </blockquote>
     </div>
-    <div class="slide"><h1>Assigning names helps you think about concepts</h1></div>
+    <div class="slide"><h1>Assigning good names helps you think about concepts</h1></div>
     <div class="slide"><h1>If you can't name it, it's probably wrong</h1></div>
     <div class="slide"><h1>Don't be too general</h1></div>
-    <div class="slide"><h1>"Object" is the only class that should be "Object"</h1></div>
-    <div class="slide"><h1>Base</h1></div>
-    <div class="slide"><h1>Datum</h1></div>
     <div class="slide"><h1>SRP applies to names, too</h1></div>
+    <div class="slide"><h1>Datum</h1></div>
     <div class="slide"><h1>"Datum" objects persisted to DB<br>... and Cassandra</h1></div>
     <div class="slide"><h1>"What's this do?"<br>"I don't know, it's a 'Thing'"</h1></div>
     <div class="slide"><h1>If it has one function, it easier to name</h1></div>
@@ -165,199 +164,213 @@ end
     <div class="slide"><h1>Small classes, small methods</h1></div>
     <div class="slide"><h1>That means many classes and methods</h1></div>
     <div class="slide"><h1>The parts become labelled for you</h1></div>
-    <div class="slide"><h1>Learn how it works by extracting methods</h1></div>
     <div class="slide"><h1>It wasn't a good method</h1></div>
     <div class="slide"><h1>Even after extraction, it's a 50 line method called "run"</h1></div>
     <div class="slide"><h1>Best action is to extract methods</h1></div>
+    <div class="slide"><h1>Learn how it works by extracting methods</h1></div>
     <div class="slide"><h1>Extracting methods lets you understand intent</h1></div>
     <div class="slide"><h1>Knowing intent lets you apply names</h1></div>
     <div class="slide"><h1>Document the system</h1></div>
     <div class="slide"><h1>Code can tell a story</h1></div>
     <div class="slide"><h1>Less specific to more specific as you go down</h1></div>
     <div class="slide">
-      <code class="vcenter">
-<pre>
-def define
-  define_flush_errors
-  define_getters
-  define_setter
-  define_query
-  register_new_attachment
-  add_active_record_callbacks
-  add_paperclip_callbacks
-end
-</pre>
-      </code>
+      <div class="highlight vcenter"><pre>      
+
+<span class="k">def</span> <span class="nf">define</span>
+  <span class="n">define_flush_errors</span>
+  <span class="n">define_getters</span>
+  <span class="n">define_setter</span>
+  <span class="n">define_query</span>
+  <span class="n">register_new_attachment</span>
+  <span class="n">add_active_record_callbacks</span>
+  <span class="n">add_paperclip_callbacks</span>
+<span class="k">end</span>
+
+
+</pre></div>
     </div>
     <div class="slide">
-      <code class="vcenter">
-<pre>
-def has_attached_file(name, options = {})
-  include InstanceMethods
+      <div class="highlight"><pre>      
 
-  if attachment_definitions.nil?
-    self.attachment_definitions = {}
-  else
-    self.attachment_definitions = self.attachment_definitions.dup
-  end
+<span class="k">def</span> <span class="nf">has_attached_file</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+  <span class="kp">include</span> <span class="no">InstanceMethods</span>
 
-  attachment_definitions[name] = Paperclip::AttachmentOptions.new(options)
-  Paperclip.classes_with_attachments << self.name
+  <span class="k">if</span> <span class="n">attachment_definitions</span><span class="o">.</span><span class="n">nil?</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">attachment_definitions</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">else</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">attachment_definitions</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">attachment_definitions</span><span class="o">.</span><span class="n">dup</span>
+  <span class="k">end</span>
 
-  after_save :save_attached_files
-  before_destroy :prepare_for_destroy
-  after_destroy :destroy_attached_files
+  <span class="n">attachment_definitions</span><span class="o">[</span><span class="nb">name</span><span class="o">]</span> <span class="o">=</span> <span class="ss">Paperclip</span><span class="p">:</span><span class="ss">:AttachmentOptions</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+  <span class="no">Paperclip</span><span class="o">.</span><span class="n">classes_with_attachments</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span><span class="o">.</span><span class="n">name</span>
 
-  define_paperclip_callbacks :post_process, :"#{name}_post_process"
+  <span class="n">after_save</span> <span class="ss">:save_attached_files</span>
+  <span class="n">before_destroy</span> <span class="ss">:prepare_for_destroy</span>
+  <span class="n">after_destroy</span> <span class="ss">:destroy_attached_files</span>
 
-  define_method name do |*args|
-    a = attachment_for(name)
-    (args.length > 0) ? a.to_s(args.first) : a
-  end
+  <span class="n">define_paperclip_callbacks</span> <span class="ss">:post_process</span><span class="p">,</span> <span class="ss">:&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="ss">_post_process&quot;</span>
 
-  define_method "#{name}=" do |file|
-    attachment_for(name).assign(file)
-  end
+  <span class="n">define_method</span> <span class="nb">name</span> <span class="k">do</span> <span class="o">|*</span><span class="n">args</span><span class="o">|</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">attachment_for</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="n">a</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">first</span><span class="p">)</span> <span class="p">:</span> <span class="n">a</span>
+  <span class="k">end</span>
 
-  define_method "#{name}?" do
-    attachment_for(name).file?
-  end
+  <span class="n">define_method</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">=&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+    <span class="n">attachment_for</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+  <span class="k">end</span>
 
-  validates_each(name) do |record, attr, value|
-    attachment = record.attachment_for(name)
-    attachment.send(:flush_errors)
-  end
-end
-</pre>
-      </code>
+  <span class="n">define_method</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">?&quot;</span> <span class="k">do</span>
+    <span class="n">attachment_for</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span><span class="o">.</span><span class="n">file?</span>
+  <span class="k">end</span>
+
+  <span class="n">validates_each</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">record</span><span class="p">,</span> <span class="kp">attr</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+    <span class="n">attachment</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">attachment_for</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="n">attachment</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:flush_errors</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+
+</pre></div>
     </div>
     <div class="slide">
-      <code class="vcenter">
-<pre>
-def define
-  define_flush_errors
-  define_getters
-  define_setter
-  define_query
-  register_new_attachment
-  add_active_record_callbacks
-  add_paperclip_callbacks
-end
-</pre>
-      </code>
+      <div class="highlight vcenter"><pre>      
+
+<span class="k">def</span> <span class="nf">define</span>
+  <span class="n">define_flush_errors</span>
+  <span class="n">define_getters</span>
+  <span class="n">define_setter</span>
+  <span class="n">define_query</span>
+  <span class="n">register_new_attachment</span>
+  <span class="n">add_active_record_callbacks</span>
+  <span class="n">add_paperclip_callbacks</span>
+<span class="k">end</span>
+</pre></div>
+    </code>
+  </div>
+  <div class="slide"><h1>Specificity matters</h1></div>
+  <div class="slide"><h1>Don't ever name a variable "x"</h1></div>
+  <div class="slide"><h1>Try searching for "x"</h1></div>
+  <div class="slide"><h1>Let your names document your code</h1></div>
+  <div class="slide"><h1>Your names should make sense</h1></div>
+  <div class="slide"><h1>Ruby isn't statically typed</h1></div>
+  <div class="slide">
+    <div class="highlight vcenter"><pre>      
+
+<span class="k">def</span> <span class="nf">venue_options</span>
+  <span class="no">Venue</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="n">foursquare_category_id</span><span class="p">:</span> <span class="n">categories</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:id</span><span class="p">),</span>
+    <span class="n">neighborhood_id</span><span class="p">:</span> <span class="n">neighborhoods</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:id</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+  </div>
+  <div class="slide">
+    <div class="highlight vcenter"><pre>      
+
+<span class="k">def</span> <span class="nf">venues</span>
+  <span class="no">Venue</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="n">foursquare_category_id</span><span class="p">:</span> <span class="n">categories</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:id</span><span class="p">),</span>
+    <span class="n">neighborhood_id</span><span class="p">:</span> <span class="n">neighborhoods</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:id</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+  </div>
+  <div class="slide"><h1>Hungarian Notation</h1></div>
+  <div class="slide">
+    <div class="vcenter hcenter">
+      <h1>Systems Hungarian</h1>
+      <p>strUsername</p>
+      <p>tblAddress</p>
     </div>
-    <div class="slide"><h1>Specificity matters</h1></div>
-    <div class="slide"><h1>Don't ever name a variable "x"</h1></div>
-    <div class="slide"><h1>Try searching for "x"</h1></div>
-    <div class="slide"><h1>Let your names document your code</h1></div>
-    <div class="slide">
-      <code class="vcenter">
-        <pre>
-nodes.map do |node|
-  self.distance_to(node)
-end
-</pre>
-</code>
+  </div>
+  <div class="slide">
+    <div class="vcenter hcenter">
+      <h1>Apps Hungarian</h1>
+      <p>dY<p> <p>dX</p> <p>safeInput</p>
     </div>
-    <div class="slide"><h1>Hungarian Notation</h1></div>
-    <div class="slide">
-      <div class="vcenter hcenter">
-        <h1>Systems Hungarian</h1>
-        <p>strUsername</p>
-      </div>
+  </div>
+  <div class="slide"><h1>Not so great anymore</h1></div>
+  <div class="slide"><h1>Names should still be descriptive</h1></div>
+  <div class="slide"><h1>Watch for patterns</h1></div>
+  <div class="slide">
+    <div class="highlight vcenter"><pre>      
+        <span class="n">credit_card_number</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
+        <span class="n">credit_card_exp_date</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
+        <span class="n">credit_card_cvv2</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
+
+</pre></div>
+  </div>
+  <div class="slide">
+    <div class="highlight vcenter"><pre>      
+        <span class="n">credit_card</span> <span class="o">=</span> <span class="no">CreditCard</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+          <span class="ss">number</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+          <span class="ss">expiration</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+          <span class="ss">cvv2</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">)</span>
+
+</pre></div>
+  </div>
+
+  <div class="slide"><h1>Say what you mean,<br>mean what you say</h1></div>
+  <div class="slide">
+    <div class="vcenter hcenter">
+      <h1>Thank you!</h1>
+      <p>Jon Yurek</p>
+      <p>@jyurek</p>
+      <p>jyurek@thoughtbot.com</p>
+      <p>github.com/jyurek</p>
     </div>
-    <div class="slide">
-      <div class="vcenter hcenter">
-        <h1>Apps Hungarian</h1>
-        <p>dY, dX, safeInput</p>
-      </div>
-    </div>
-    <div class="slide"><h1>Not so great anymore</h1></div>
-    <div class="slide">
-      <code class="vcenter">
-        <pre>
-def venue_options
-  Venue.where(
-    foursquare_category_id: foursquare_categories.map(&:id),
-    neighborhood_id: neighborhoods.map(&:id)
-  )
-end
-</pre>
-</code>
-    </div>
-    <div class="slide">
-      <code class="vcenter">
-<pre>
-def venues
-  Venue.where(
-    foursquare_category_id: foursquare_categories.map(&:id),
-    neighborhood_id: neighborhoods.map(&:id)
-  )
-end
-</pre>
-</code>
-    </div>
-
-    <div class="slide"><h1>Say what you mean,<br>mean what you say</h1></div>
-    <div class="slide">
-      <div class="vcenter hcenter">
-        <h1>Thank you!</h1>
-        <p>Jon Yurek</p>
-        <p>@jyurek</p>
-        <p>jyurek@thoughtbot.com</p>
-        <p>github.com/jyurek</p>
-      </div>
-    </div>
+  </div>
 
 
-    <!-- End slides. -->
+  <!-- End slides. -->
 
 
-    <!-- Begin extension snippets. Add or remove as needed. -->
+  <!-- Begin extension snippets. Add or remove as needed. -->
 
-    <!-- deck.navigation snippet -->
-    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
 
-    <!-- deck.status snippet -->
-    <p class="deck-status">
-    <span class="deck-status-current"></span>
-    /
-    <span class="deck-status-total"></span>
-    </p>
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+  /
+  <span class="deck-status-total"></span>
+  </p>
 
-    <!-- deck.goto snippet -->
-    <form action="." method="get" class="goto-form">
-      <label for="goto-slide">Go to slide:</label>
-      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
-      <datalist id="goto-datalist"></datalist>
-      <input type="submit" value="Go">
-    </form>
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+    <label for="goto-slide">Go to slide:</label>
+    <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+    <datalist id="goto-datalist"></datalist>
+    <input type="submit" value="Go">
+  </form>
 
-    <!-- deck.hash snippet -->
-    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 
-    <!-- End extension snippets. -->
+  <!-- End extension snippets. -->
 
 
-    <!-- Required JS files. -->
-    <script src="jquery-1.7.2.min.js"></script>
-    <script src="core/deck.core.js"></script>
+  <!-- Required JS files. -->
+  <script src="jquery-1.7.2.min.js"></script>
+  <script src="core/deck.core.js"></script>
 
-    <!-- Extension JS files. Add or remove as needed. -->
-    <script src="core/deck.core.js"></script>
-    <script src="extensions/hash/deck.hash.js"></script>
-    <script src="extensions/menu/deck.menu.js"></script>
-    <script src="extensions/goto/deck.goto.js"></script>
-    <script src="extensions/status/deck.status.js"></script>
-    <script src="extensions/navigation/deck.navigation.js"></script>
-    <script src="extensions/scale/deck.scale.js"></script>
+  <!-- Extension JS files. Add or remove as needed. -->
+  <script src="core/deck.core.js"></script>
+  <script src="extensions/hash/deck.hash.js"></script>
+  <script src="extensions/menu/deck.menu.js"></script>
+  <script src="extensions/goto/deck.goto.js"></script>
+  <script src="extensions/status/deck.status.js"></script>
+  <script src="extensions/navigation/deck.navigation.js"></script>
+  <script src="extensions/scale/deck.scale.js"></script>
 
-    <!-- Initialize the deck. You can put this in an external file if desired. -->
-    <script>
-      $(function() {
-        $.deck('.slide');
-      });
-    </script>
-  </body>
+  <!-- Initialize the deck. You can put this in an external file if desired. -->
+  <script>
+    $(function() {
+      $.deck('.slide');
+    });
+  </script>
+</body>
 </html>

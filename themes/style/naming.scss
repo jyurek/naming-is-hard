@@ -33,6 +33,8 @@ $text-color: white;
       border: 0;
       color: $text-color;
       font-size: 1.75em;
+      overflow: hidden;
+      white-space: pre;
     }
 
     code {
