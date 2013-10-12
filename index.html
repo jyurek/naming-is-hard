@@ -44,32 +44,21 @@
       </div>
     </div>
     <div class="slide"><img class="vcenter" src="images/ralph.png"/></div>
-    <div class="slide"><h1>This talk is about naming things</h1></div>
-    <div class="slide"><h1>Don't name it what it does</h1></div>
-    <div class="slide"><h1>Name it for why it's there</h1></div>
+    <div class="slide"><h1>This talk is about naming</h1></div>
+    <div class="slide"><h1>Don't name it what it does<br>Name it for why it's there</h1></div>
     <div class="slide">
-      <div class="highlight vcenter"><pre><span class="k">if</span> <span class="vi">@tag</span> <span class="o">&amp;&amp;</span> <span class="vi">@tag</span><span class="o">.</span><span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">5</span>
-  <span class="n">display_important_tag</span><span class="p">(</span><span class="vi">@tag</span><span class="p">)</span>
+<div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">comments</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">comments</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">created_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span>
+  <span class="n">recent_popular_posts</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
 <span class="k">end</span>
 </pre></div>
     </div>
     <div class="slide">
-      <div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">high_weight?</span><span class="p">(</span><span class="vi">@tag</span><span class="p">)</span>
-  <span class="n">display_important_tag</span><span class="p">(</span><span class="vi">@tag</span><span class="p">)</span>
+<div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">popular?</span>
+  <span class="n">recent_popular_posts</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
 <span class="k">end</span>
 
-<span class="k">def</span> <span class="nf">high_weight?</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
-  <span class="n">tag</span> <span class="o">&amp;&amp;</span> <span class="n">tag</span><span class="o">.</span><span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">5</span>
-<span class="k">end</span>
-</pre></div>
-    </div>
-    <div class="slide">
-      <div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">important?</span>
-  <span class="n">display_important_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="k">def</span> <span class="nc">tag</span><span class="o">.</span><span class="nf">important?</span>
-  <span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="k">def</span> <span class="nf">popular?</span>
+  <span class="n">comments</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">comments</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">created_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span>
 <span class="k">end</span>
 </pre></div>
     </div>
@@ -89,33 +78,33 @@
     <div class="slide">
       <code class="vcenter">
 <pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   	  	   
+	
+     		  	 	
+	
+     		 		  
+	
+     		 		  
+	
+     		 				
+	
+     	 		  
+	
+     	     
+	
+     			 			
+	
+     		 				
+	
+     			  	 
+	
+     		 		  
+	
+     		  	  
+	
+     	    	
+	
+  
 
 
 </pre>
@@ -134,39 +123,36 @@
     <div class="slide"><h1>Languages are written for humans</h1></div>
     <div class="slide"><h1>We program for other people</h1></div>
     <div class="slide"><h1>We work on teams. We need to communicate.</h1></div>
-    <div class="slide"><h1>Intention-revealing names</h1></div>
-    <div class="slide"><h1>Ideas have power.<br>Names have power.</h1></div>
+    <div class="slide"><h1>1. Reveal your intentions.</h1></div>
+    <div class="slide"><h1>Names have power.</h1></div>
     <div class="slide">
       <blockquote class="vcenter">
         A hypothesis holding that the structure of a language affects the perceptions of reality of its speakers and thus influences their thought patterns and worldviews.
         <cite>Sapir-Whorf Hypothesis</cite>
       </blockquote>
     </div>
+    <div class="slide"><h1>Build a domain language</h1></div>
     <div class="slide"><h1>Assigning good names helps you think about concepts</h1></div>
+    <div class="slide"><h1>2. Be specific</h1></div>
     <div class="slide"><h1>If you can't name it, it's probably wrong</h1></div>
     <div class="slide"><h1>Don't be too general</h1></div>
     <div class="slide"><h1>SRP applies to names, too</h1></div>
     <div class="slide"><h1>Datum</h1></div>
-    <div class="slide"><h1>"Datum" objects persisted to DB<br>... and Cassandra</h1></div>
-    <div class="slide"><h1>"What's this do?"<br>"I don't know, it's a 'Thing'"</h1></div>
     <div class="slide"><h1>If it has one function, it easier to name</h1></div>
-    <div class="slide"><h1>Method with 20 Lines of Error Handling</h1></div>
-    <div class="slide"><h1>Extracted error handling into a class called "SyncErrorHandler"</h1></div>
     <div class="slide"><h1>Sandi Metz's rules</h1></div>
     <div class="slide">
       <ol class="vcenter">
-        <li class="slide">Classes can be no longer than one hundred lines of code.</li>
-        <li class="slide">Methods can be no longer than five lines of code.</li>
-        <li class="slide">Pass no more than four parameters into a method. Hash options are parameters.</li>
-        <li class="slide">Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object (@object.collaborator.value is not allowed).</li>
+        <li>Classes can be no longer than one hundred lines of code.</li>
+        <li>Methods can be no longer than five lines of code.</li>
+        <li>Pass no more than four parameters into a method. Hash options are parameters.</li>
+        <li>Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object (@object.collaborator.value is not allowed).</li>
       </ol>
     </div>
     <div class="slide"><h1>Small classes, small methods</h1></div>
     <div class="slide"><h1>That means many classes and methods</h1></div>
     <div class="slide"><h1>The parts become labelled for you</h1></div>
-    <div class="slide"><h1>It wasn't a good method</h1></div>
-    <div class="slide"><h1>Even after extraction, it's a 50 line method called "run"</h1></div>
     <div class="slide"><h1>Best action is to extract methods</h1></div>
+    <div class="slide"><h1>3. Refactoring and extraction reveal meaning</h1></div>
     <div class="slide"><h1>Learn how it works by extracting methods</h1></div>
     <div class="slide"><h1>Extracting methods lets you understand intent</h1></div>
     <div class="slide"><h1>Knowing intent lets you apply names</h1></div>
@@ -247,12 +233,16 @@
 </pre></div>
     </code>
   </div>
-  <div class="slide"><h1>Specificity matters</h1></div>
-  <div class="slide"><h1>Don't ever name a variable "x"</h1></div>
-  <div class="slide"><h1>Try searching for "x"</h1></div>
-  <div class="slide"><h1>Let your names document your code</h1></div>
-  <div class="slide"><h1>Your names should make sense</h1></div>
+  <div class="slide"><h1>4. Your names should make sense</h1></div>
   <div class="slide"><h1>Ruby isn't statically typed</h1></div>
+  <div class="slide"><h1>A array called "users" should contain Users</h1></div>
+  <div class="slide">
+    <div class="vcenter hcenter">
+      <h1>Don't ever name a variable "x"</h1>
+      <p>Try searching for "x"</p>
+    </div>
+  </div>
+  <div class="slide"><h1>Let your names document your code</h1></div>
   <div class="slide">
     <div class="highlight vcenter"><pre>      
 
@@ -290,28 +280,25 @@
     </div>
   </div>
   <div class="slide"><h1>Not so great anymore</h1></div>
-  <div class="slide"><h1>Names should still be descriptive</h1></div>
-  <div class="slide"><h1>Watch for patterns</h1></div>
-  <div class="slide">
-    <div class="highlight vcenter"><pre>      
-        <span class="n">credit_card_number</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
-        <span class="n">credit_card_exp_date</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
-        <span class="n">credit_card_cvv2</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
-
-</pre></div>
-  </div>
-  <div class="slide">
-    <div class="highlight vcenter"><pre>      
-        <span class="n">credit_card</span> <span class="o">=</span> <span class="no">CreditCard</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
-          <span class="ss">number</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-          <span class="ss">expiration</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-          <span class="ss">cvv2</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-        <span class="p">)</span>
-
-</pre></div>
-  </div>
-
+  <div class="slide"><h1>This is Ruby, not C</h1></div>
+  <div class="slide"><h1>5. Clarity is key</h1></div>
   <div class="slide"><h1>Say what you mean,<br>mean what you say</h1></div>
+  <div class="slide">
+<div class="highlight vcenter"><pre><span class="k">if</span> <span class="n">popular?</span>
+  <span class="n">recent_popular_posts</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">popular?</span>
+  <span class="n">comments</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">comments</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">created_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span>
+<span class="k">end</span>
+</pre></div>
+  </div>
+  <div class="slide"><h1>Cocaine</h1></div>
+  <div class="slide"><h1>Don't take a metaphor too far</h1></div>
+  <div class="slide"><h1>Cocaine.do_line("...")</h1></div>
+
+  <div class="slide"><h1>Names are important</h1></div>
+
   <div class="slide">
     <div class="vcenter hcenter">
       <h1>Thank you!</h1>
